@@ -1,0 +1,38 @@
+pipeline {
+    
+    agent any 
+    
+    environment {
+         PROJECT_NAME = 'tese'
+         OWNER_NAME = 'ubuntu'
+    }
+    
+    stages {
+        stage('build') {
+            steps {
+                echo 'Hello World'
+                echo "Hello ${OWNER_NAME}"
+                echo "Project name is ${PROJECT_NAME}"
+                echo 'Deploing......'
+                echo 'End of my Stage'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                echo 'Hello World'
+                echo 'Deploing......'
+                sh 'ls -la'
+                echo 'End of my Stage'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Hello World'
+                echo 'Deploying......'
+            //    sh netstat -tupln
+                echo 'End of my Stage'
+            }
+        }
+    }
+}
